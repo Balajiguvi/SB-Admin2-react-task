@@ -11,24 +11,31 @@ import Portal from './Portal';
 import Createuser from './Createuser';
 import UserView from './UserView';
 import UserEdit from './UserEdit';
+import { UserProvider } from './UserContext';
 
 function App() {
   return (
 
     <BrowserRouter>
 
-      <Routes>
-        <Route path='/' element={<Login />} />
+      <UserProvider>
 
-        <Route path='/portal' element={<Portal />} >
-          <Route path='dashboard' element={<Dashboard />} />
-          <Route path='userlist' element={<Userlist />} />
-          <Route path='create-user' element={<Createuser />} />
-          <Route path='user-view/:id' element={<UserView />} />
-          <Route path='user-edit/:id' element={<UserEdit />} />
-        </Route>
+        <Routes>
 
-      </Routes>
+          <Route path='/' element={<Login />} />
+
+          <Route path='/portal' element={<Portal />} >
+            <Route path='dashboard' element={<Dashboard />} />
+            <Route path='userlist' element={<Userlist />} />
+            <Route path='create-user' element={<Createuser />} />
+            <Route path='user-view/:id' element={<UserView />} />
+            <Route path='user-edit/:id' element={<UserEdit />} />
+          </Route>
+
+        </Routes>
+
+      </UserProvider>
+
 
     </BrowserRouter>
 
